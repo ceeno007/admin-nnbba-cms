@@ -826,6 +826,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
     Title: Attribute.String;
     Content: Attribute.String;
     Date: Attribute.Date & Attribute.Required;
+    URL: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -857,6 +858,7 @@ export interface ApiImageImage extends Schema.CollectionType {
   };
   attributes: {
     Images: Attribute.Media<'images', true>;
+    name: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

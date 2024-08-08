@@ -21,6 +21,9 @@
     "Date": {
       "type": "date",
       "required": true
+    },
+    "URL": {
+      "type": "string"
     }
   }
 }
