@@ -13,17 +13,22 @@
   "pluginOptions": {},
   "attributes": {
     "Title": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "maxLength": 20
     },
     "Content": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 150,
+      "required": true
     },
     "Date": {
       "type": "date",
       "required": true
     },
     "URL": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

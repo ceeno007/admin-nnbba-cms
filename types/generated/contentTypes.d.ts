@@ -823,10 +823,18 @@ export interface ApiEventEvent extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
-    Content: Attribute.String;
+    Title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
+    Content: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 150;
+      }>;
     Date: Attribute.Date & Attribute.Required;
-    URL: Attribute.String;
+    URL: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
