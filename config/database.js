@@ -1,5 +1,4 @@
 const path = require('path');
-const knex = require('knex');
 
 module.exports = ({ env }) => {
   const client = env('DATABASE_CLIENT', 'sqlite');
@@ -94,24 +93,6 @@ module.exports = ({ env }) => {
       useNullAsDefault: true,
     },
   };
-
-  const db = knex({
-    client: client,
-    connection: connections[client].connection,
-    pool: connections[client].pool,
-  });
-
-  // Keep-Alive Query
-  const keepAliveInterval = 60000; // 60 seconds
-
-  setInterval(async () => {
-    try {
-      await db.raw('SELECT 1');
-      console.log('Database keep-alive query executed successfully');
-    } catch (err) {
-      console.error('Error executing keep-alive query:', err);
-    }
-  }, keepAliveInterval);
 
   return {
     connection: {
