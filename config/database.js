@@ -103,16 +103,12 @@
 //   };
 // };
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 3597f8876d0e8243cc42e26a95178dfe864b3640
 module.exports = () => ({
   connection: {
     client: 'postgres',
     connection: {
-<<<<<<< HEAD
       host: 'pg-35f88ea8-nnbba-dbf4.l.aivencloud.com',
       port: 20539,
       database: 'defaultdb',
@@ -123,17 +119,5 @@ module.exports = () => ({
       },
     },
     debug: false,
-=======
-      host: process.env.DATABASE_HOST,
-      port: process.env.DATABASE_PORT,
-      database: process.env.DATABASE_NAME,
-      user: process.env.DATABASE_USER,
-      password: process.env.DATABASE_PASSWORD,
-      ssl: {
-        rejectUnauthorized: process.env.DATABASE_SSL_SELF === 'true',
-      },
-    },
-    debug: process.env.DATABASE_DEBUG === 'true',
->>>>>>> 3597f8876d0e8243cc42e26a95178dfe864b3640
   },
 });
