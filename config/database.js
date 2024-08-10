@@ -103,19 +103,19 @@
 //   };
 // };
 
-module.exports = ({ env }) => ({
+module.exports = () => ({
   connection: {
     client: 'postgres',
     connection: {
-      host: env('DATABASE_HOST', 'pg-35f88ea8-nnbba-dbf4.l.aivencloud.com'),
-      port: env.int('DATABASE_PORT', 20539),
-      database: env('DATABASE_NAME', 'defaultdb'),
-      user: env('DATABASE_USER', 'avnadmin'),
-      password: env('DATABASE_PASSWORD', 'AVNS_sN9p8qHBNGHYlWacgXV'),
+      host: process.env.DATABASE_HOST,
+      port: process.env.DATABASE_PORT,
+      database: process.env.DATABASE_NAME,
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
       ssl: {
-        rejectUnauthorized: env.bool('DATABASE_SSL_SELF', false),
+        rejectUnauthorized: process.env.DATABASE_SSL_SELF === 'true',
       },
     },
-    debug: env.bool('DATABASE_DEBUG', false),
+    debug: process.env.DATABASE_DEBUG === 'true',
   },
 });
