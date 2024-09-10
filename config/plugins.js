@@ -1,4 +1,9 @@
 module.exports = () => ({
+    'users-permissions': {
+        config: {
+            jwtSecret: 'NBRcDsVQnRmnPeiDl5HcfQ==',
+        },
+    },
     upload: {
         config: {
             provider: 'cloudinary',

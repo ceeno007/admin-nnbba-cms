@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "hero_page_videos",
+  "info": {
+    "singularName": "hero-page-video",
+    "pluralName": "hero-page-videos",
+    "displayName": "HeroPageVideo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HeroPageVideo": {
+      "allowedTypes": [
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
