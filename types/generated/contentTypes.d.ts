@@ -823,14 +823,10 @@ export interface ApiEventEvent extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String & Attribute.Required;
-    Content: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 150;
-      }>;
-    Date: Attribute.Date & Attribute.Required;
-    URL: Attribute.String & Attribute.Required;
+    Title: Attribute.String;
+    Content: Attribute.String;
+    Date: Attribute.Date;
+    URL: Attribute.String;
     Media: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -912,18 +908,18 @@ export interface ApiImageImage extends Schema.CollectionType {
   };
 }
 
-export interface ApiPartnerPartner extends Schema.SingleType {
+export interface ApiPartnerPartner extends Schema.CollectionType {
   collectionName: 'partners';
   info: {
     singularName: 'partner';
     pluralName: 'partners';
-    displayName: 'Partner';
+    displayName: 'partner';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Partners: Attribute.Media<'images'>;
+    partners: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -974,6 +970,37 @@ export interface ApiPopupPopup extends Schema.SingleType {
   };
 }
 
+export interface ApiPresidentsImagePresidentsImage extends Schema.SingleType {
+  collectionName: 'presidents_images';
+  info: {
+    singularName: 'presidents-image';
+    pluralName: 'presidents-images';
+    displayName: 'presidents-image';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Text: Attribute.String;
+    imageUrl: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::presidents-image.presidents-image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::presidents-image.presidents-image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -998,6 +1025,7 @@ declare module '@strapi/types' {
       'api::image.image': ApiImageImage;
       'api::partner.partner': ApiPartnerPartner;
       'api::popup.popup': ApiPopupPopup;
+      'api::presidents-image.presidents-image': ApiPresidentsImagePresidentsImage;
     }
   }
 }

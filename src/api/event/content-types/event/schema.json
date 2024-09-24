@@ -14,30 +14,30 @@
   "attributes": {
     "Title": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "Content": {
       "type": "string",
-      "maxLength": 150,
-      "required": true
+      "required": false
     },
     "Date": {
       "type": "date",
-      "required": true
+      "required": false
     },
     "URL": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "Media": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
