@@ -14,8 +14,7 @@
   "attributes": {
     "Title": {
       "type": "string",
-      "required": true,
-      "maxLength": 20
+      "required": true
     },
     "Content": {
       "type": "string",
@@ -29,6 +28,16 @@
     "URL": {
       "type": "string",
       "required": true
+    },
+    "Media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

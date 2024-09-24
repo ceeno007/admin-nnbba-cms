@@ -823,11 +823,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 20;
-      }>;
+    Title: Attribute.String & Attribute.Required;
     Content: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
@@ -835,6 +831,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
       }>;
     Date: Attribute.Date & Attribute.Required;
     URL: Attribute.String & Attribute.Required;
+    Media: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
