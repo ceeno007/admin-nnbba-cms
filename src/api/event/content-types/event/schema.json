@@ -14,15 +14,15 @@
   "attributes": {
     "Title": {
       "type": "string",
-      "required": false
+      "required": true
     },
     "Content": {
       "type": "string",
-      "required": false
+      "required": true
     },
     "Date": {
       "type": "date",
-      "required": false
+      "required": true
     },
     "URL": {
       "type": "string",
@@ -31,7 +31,7 @@
     "Media": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",

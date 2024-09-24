@@ -823,11 +823,12 @@ export interface ApiEventEvent extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
-    Content: Attribute.String;
-    Date: Attribute.Date;
+    Title: Attribute.String & Attribute.Required;
+    Content: Attribute.String & Attribute.Required;
+    Date: Attribute.Date & Attribute.Required;
     URL: Attribute.String;
-    Media: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Media: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
